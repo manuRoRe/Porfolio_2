@@ -28,7 +28,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card border-border/30 border-b" : ""
+        scrolled ? "glass-nav border-border/30 border-b" : ""
       }`}
     >
       <div className="section-container">

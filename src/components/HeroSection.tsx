@@ -23,9 +23,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="bg-primary/10 text-primary border-primary/20 inline-block rounded-full border px-4 py-2 text-sm font-medium">
-              👋 Hola, soy desarrollador Full Stack
-            </span>
+            <a
+              href="https://www.linkedin.com/in/manuel-romero-reyes-206578381/"
+              target="_blank"
+            >
+              <span className="bg-primary/10 text-primary border-primary/20 inline-block rounded-full border px-4 py-2 text-sm font-bold transition-all hover:scale-120 hover:bg-cyan-700/50 hover:text-white">
+                👋 Disponible para trabajar
+              </span>
+            </a>
           </motion.div>
 
           <motion.h1

@@ -84,6 +84,10 @@
     @apply bg-card/80 border-border/30 rounded-xl border backdrop-blur-xl;
   }
 
+  .glass-nav {
+    @apply bg-card/80 border-border/30 rounded-b-md border backdrop-blur-xl;
+  }
+
   .gradient-text {
     @apply from-primary bg-gradient-to-r to-cyan-400 bg-clip-text text-transparent;
   }
@@ -155,7 +159,7 @@
   }
 
   .btn-outline {
-    @apply text-foreground border-border hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 px-8 py-4 font-semibold transition-all duration-300;
+    @apply text-foreground border-border hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 bg-white/50 px-8 py-4 font-semibold transition-all duration-300;
   }
 }
 
