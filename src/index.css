@@ -1,15 +1,6 @@
-@import "tailwindcss";
-@import "flowbite-react/plugin/tailwindcss";
-@source "../.flowbite-react/class-list.json";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@tailwindcss /preflight;
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
-@import "tw-animate-css";
 
 @layer base {
   :root {
@@ -65,7 +56,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: "Inter", sans-serif;
   }
 
@@ -81,11 +72,11 @@
 
 @layer components {
   .glass-card {
-    @apply bg-card/80 border-border/30 rounded-xl border backdrop-blur-xl;
+    @apply bg-card/80 border-border/30 rounded-xl border;
   }
 
   .glass-nav {
-    @apply bg-card/80 border-border/30 rounded-b-md border backdrop-blur-xl;
+    @apply bg-card/80 border-border/30 rounded-b-md border;
   }
 
   .gradient-text {

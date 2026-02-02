@@ -10,7 +10,7 @@ const Footer = () => {
             className="font-display flex items-center gap-2 text-lg font-bold"
           >
             <Code2 className="text-primary h-6 w-6" />
-            <span className="gradient-text">DevPortfolio</span>
+            <span className="gradient-text">Portfolio Manuel Romero</span>
           </a>
 
           <p className="text-muted-foreground flex items-center gap-1 text-sm">
@@ -19,7 +19,7 @@ const Footer = () => {
           </p>
 
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Todos los derechos reservados
+            {new Date().getFullYear()}
           </p>
         </div>
       </div>

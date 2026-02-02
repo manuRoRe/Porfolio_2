@@ -64,7 +64,7 @@ const HeroSection = () => {
             <a href="#proyectos" className="btn-primary">
               Ver proyectos
             </a>
-            <a href="#contacto" className="btn-outline">
+            <a href="#contacto" className="btn-outline bg-white">
               Contáctame
             </a>
           </motion.div>
@@ -76,7 +76,7 @@ const HeroSection = () => {
             className="flex justify-center gap-6"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/manuRoRe"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
@@ -84,7 +84,7 @@ const HeroSection = () => {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/manuel-romero-reyes-206578381/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
@@ -92,7 +92,7 @@ const HeroSection = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="mailto:email@example.com"
+              href="mailto:manuelromeroreyes.mrr@gmail.com"
               className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
             >
               <Mail className="h-6 w-6" />

@@ -28,7 +28,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav border-border/30 border-b" : ""
+        scrolled ? "glass-nav border-border/30 border-b-4" : ""
       }`}
     >
       <div className="section-container">
@@ -38,7 +38,12 @@ const Navbar = () => {
             className="font-display flex items-center gap-2 text-xl font-bold"
           >
             <Code2 className="text-primary h-8 w-8" />
-            <span className="gradient-text">DevPortfolio</span>
+            {/* <img
+              className="size-12 rounded-full object-cover"
+              src="public/fotoPersonal.jpg"
+              alt="Manuel Romero"
+            /> */}
+            <span className="gradient-text">Manuel Romero</span>
           </a>
 
           {/* Desktop Navigation */}
