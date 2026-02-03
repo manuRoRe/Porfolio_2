@@ -19,10 +19,10 @@ const ProjectCard = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="project-card"
+      className="project-card group"
     >
       <div className="mb-4 flex items-start justify-between">
-        <div className="bg-primary/10 rounded-lg p-3">
+        <div className="bg-primary/10 group-hover:bg-primary/20 rounded-xl p-3 transition-colors">
           <Folder className="text-primary h-6 w-6" />
         </div>
         <div className="flex gap-3">

@@ -1,47 +1,40 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import type { Project } from "@/interfaces/Project";
 import FeaturedProjectsShowcase from "./FeaturedProjectsShowCase";
 
-export const projects: Project[] = [
+export const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Teslo Shop",
     description:
-      "Plataforma de comercio electrónico completa con carrito de compras, pagos integrados y panel de administración.",
-    technologies: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Plataforma de comercio electrónico completa con carrito de compras y panel de administración.",
+    technologies: ["React", "typeScript", "Lovable", "Github", "TailwindCSS"],
+    github: "https://github.com/manuRoRe/teslo-shop.git",
+    live: undefined,
     featured: true,
-    desktopImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    mobileImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=600&fit=crop",
+    desktopImage: "./public/projects/tesloPC.png",
+    mobileImage: "./public/projects/tesloSmPhone.png",
   },
   {
-    title: "Task Management App",
+    title: "Luna - Tu compañera de bienestar femenino",
     description:
-      "Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y analíticas.",
-    technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Aplicación de ayuda y bienestar femenino con seguimiento del ciclo consejos de bienestar y login con verificacion de email.",
+    technologies: ["Laravel", "PHP", "Github", "MySQL"],
+    github: "https://github.com/manuRoRe/Luna.git",
+    live: undefined,
     featured: true,
-    desktopImage:
-      "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=500&fit=crop",
-    mobileImage:
-      "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=300&h=600&fit=crop",
+    desktopImage: "./public/projects/lunaPC.png",
+    mobileImage: "./public/projects/lunaSmphone.png",
   },
   {
-    title: "Social Media Dashboard",
+    title: "Heroes App",
     description:
-      "Dashboard para analítica de redes sociales con gráficos interactivos y reportes automatizados.",
-    technologies: ["Vue.js", "D3.js", "Python", "FastAPI"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Dashboard para busqueda de super heroes con Context provider custom hooks y testing en las partes mas destacadas",
+    technologies: ["React", "TypeScript", "React Testing", "TailwindCSS"],
+    github: "https://github.com/manuRoRe/heroes-app.git",
+    live: undefined,
     featured: true,
-    desktopImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    mobileImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=600&fit=crop",
+    desktopImage: "./public/projects/heroesPC.png",
+    mobileImage: "./public/projects/heroesSmPhone.png",
   },
 ];
 
@@ -68,14 +61,21 @@ const ProjectsSection = () => {
         <FeaturedProjectsShowcase />
 
         {/* Other Projects Title */}
-        <motion.h3
+        {/* <motion.h3
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="font-display mb-8 text-center text-2xl font-bold"
         >
           Otros Proyectos
-        </motion.h3>
+        </motion.h3> */}
+
+        {/* Other Projects Grid */}
+        {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {otherProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div> */}
       </div>
     </section>
   );

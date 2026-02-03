@@ -1,11 +1,15 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { ExternalLink, Github, Monitor, Smartphone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-import FeaturedProjectCard from "./FeaturedProjectCard";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Github,
+  Monitor,
+  Smartphone,
+} from "lucide-react";
 import DeviceMockup from "./DeviceMockUp";
-import type { DeviceView } from "@/lib/utils";
+import { cn, type DeviceView } from "@/lib/utils";
 import { projects } from "./ProjectsSection";
 
 const FeaturedProjectsShowcase = () => {
@@ -13,101 +17,183 @@ const FeaturedProjectsShowcase = () => {
   const [viewMode, setViewMode] = useState<DeviceView>("desktop");
   const activeProject = projects[activeIndex];
 
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const goToPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
   return (
-    <div className="glass-card mb-16 p-8 lg:p-12">
-      <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
-        {/* Device View Toggle */}
-        <div className="order-2 flex justify-center gap-4 lg:order-1 lg:flex-col lg:justify-start">
-          <Button
-            variant={viewMode === "desktop" ? "default" : "outline"}
-            onClick={() => setViewMode("desktop")}
-            className="size-12 gap-2"
-          >
-            <Monitor className="" />
-          </Button>
-          <Button
-            variant={viewMode === "mobile" ? "default" : "outline"}
-            onClick={() => setViewMode("mobile")}
-            className="flex h-14 w-14 items-center justify-center p-0"
-          >
-            <Smartphone className="h-8 w-8" strokeWidth={1.5} />
-          </Button>
-        </div>
-
-        {/* Main Content */}
-        <div className="order-1 flex-1 lg:order-2">
-          {/* Thumbnails - Left side */}
-          <div className="flex flex-row items-center justify-center gap-x-4">
-            {projects.map((project, index) => (
-              <FeaturedProjectCard
-                key={index}
-                project={project}
-                isActive={index === activeIndex}
-                onClick={() => setActiveIndex(index)}
-              />
-            ))}
-          </div>
-
-          {/* Device Mockup */}
-          <div className="flex min-h-[300px] items-center justify-center lg:min-h-[400px]">
-            <DeviceMockup project={activeProject} viewMode={viewMode} />
-          </div>
-
-          {/* Project Info */}
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-8 text-center"
-          >
-            <h3 className="font-display mb-4 text-2xl font-bold lg:text-3xl">
-              {activeProject.title}
-            </h3>
-
-            {/* Technologies */}
-            <div className="mb-4 flex flex-wrap justify-center gap-2">
-              {activeProject.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-secondary/80 text-foreground border-border/50 rounded-full border px-4 py-1.5 text-sm font-medium"
+    <div className="relative mb-20">
+      {/* Main showcase container */}
+      <div className="glass-card overflow-hidden">
+        <div className="grid gap-0 lg:grid-cols-2">
+          {/* Left side - Device Preview */}
+          <div className="from-secondary/50 to-secondary/30 relative flex flex-col bg-gradient-to-br p-8 lg:p-12">
+            {/* Device Toggle - Floating pill */}
+            <div className="mb-8 flex justify-center">
+              <div className="bg-background/80 ring-border/50 inline-flex rounded-full p-1 shadow-lg ring-1 backdrop-blur-sm">
+                <button
+                  onClick={() => setViewMode("desktop")}
+                  className={cn(
+                    "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                    viewMode === "desktop"
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
                 >
-                  {tech}
-                </span>
-              ))}
+                  <Monitor className="h-4 w-4" />
+                  <span>Desktop</span>
+                </button>
+                <button
+                  onClick={() => setViewMode("mobile")}
+                  className={cn(
+                    "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                    viewMode === "mobile"
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <Smartphone className="h-4 w-4" />
+                  <span>Móvil</span>
+                </button>
+              </div>
             </div>
 
-            <p className="text-muted-foreground mx-auto mb-6 max-w-lg">
-              {activeProject.description}
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex justify-center gap-4">
-              {activeProject.live && (
-                <a
-                  href={activeProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary gap-2"
-                >
-                  Sitio Web
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              )}
-              {activeProject.github && (
-                <a
-                  href={activeProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline gap-2"
-                >
-                  Github
-                  <Github className="h-4 w-4" />
-                </a>
-              )}
+            {/* Device Mockup */}
+            <div className="flex min-h-[300px] flex-1 items-center justify-center lg:min-h-[400px]">
+              <DeviceMockup project={activeProject} viewMode={viewMode} />
             </div>
-          </motion.div>
+
+            {/* Navigation arrows */}
+            <div className="mt-8 flex justify-center gap-4">
+              <button
+                onClick={goToPrev}
+                className="bg-background/80 text-foreground hover:bg-background ring-border/50 rounded-full p-3 shadow-lg ring-1 backdrop-blur-sm transition-all duration-200 hover:scale-105"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              {/* Dots indicator */}
+              <div className="flex items-center gap-2">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={cn(
+                      "rounded-full transition-all duration-300",
+                      index === activeIndex
+                        ? "bg-primary h-2 w-8"
+                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50 h-2 w-2",
+                    )}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={goToNext}
+                className="bg-background/80 text-foreground hover:bg-background ring-border/50 rounded-full p-3 shadow-lg ring-1 backdrop-blur-sm transition-all duration-200 hover:scale-105"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right side - Project Info */}
+          <div className="flex flex-col justify-center bg-gray-100 p-8 lg:p-12">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Project number */}
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="font-display text-primary/20 text-5xl font-bold lg:text-6xl">
+                    0{activeIndex + 1}
+                  </span>
+                  <div className="from-primary/50 h-px flex-1 bg-gradient-to-r to-transparent" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-display mb-4 text-2xl font-bold lg:text-4xl">
+                  {activeProject.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-6 text-base leading-relaxed lg:text-lg">
+                  {activeProject.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="mb-8 flex flex-wrap gap-2">
+                  {activeProject.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-primary/10 text-primary border-primary/20 rounded-lg border px-3 py-1.5 text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-4">
+                  {activeProject.live && (
+                    <a
+                      href={activeProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-secondary text-foreground hover:bg-secondary/80 ring-border/50 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium ring-1 transition-all duration-200 hover:scale-105"
+                    >
+                      <span>Ver Proyecto</span>
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
+                  {activeProject.github && (
+                    <a
+                      href={activeProject.github}
+                      target="_blank"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-primary/25 hover:shadow-primary/40 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium shadow-lg transition-all duration-200 hover:scale-105"
+                    >
+                      <Github className="h-4 w-4" />
+                      <span>Código</span>
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
+      </div>
+
+      {/* Project thumbnails - Bottom */}
+      <div className="mt-6 flex justify-center gap-4">
+        {projects.map((project, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className={cn(
+              "relative h-14 w-20 overflow-hidden rounded-xl ring-2 transition-all duration-300",
+              index === activeIndex
+                ? "ring-primary shadow-primary/30 scale-105 shadow-lg"
+                : "hover:ring-border opacity-50 ring-transparent hover:opacity-80",
+            )}
+          >
+            <img
+              src={project.desktopImage}
+              alt={project.title}
+              className="h-full w-full object-cover"
+            />
+            {index === activeIndex && (
+              <div className="bg-primary/10 absolute inset-0" />
+            )}
+          </button>
+        ))}
       </div>
     </div>
   );
