@@ -48,7 +48,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg sm:text-xl"
+            className="mx-auto mb-10 max-w-2xl text-lg sm:text-xl"
           >
             Desarrollo aplicaciones web modernas y escalables combinando las
             mejores tecnologías frontend y backend para crear soluciones

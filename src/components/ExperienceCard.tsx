@@ -29,7 +29,7 @@ export const ExperienceCard = ({
       {/* Timeline Dot */}
       <div className="timeline-dot absolute top-1 left-0" />
 
-      <div className="glass-card hover:border-primary/30 ml-4 p-6 transition-all duration-300">
+      <div className="glass-card hover:border-primary/30 ml-4 bg-gray-100 p-6 transition-all duration-300">
         <div className="mb-4 flex flex-wrap items-center gap-4">
           <div className="bg-primary/10 rounded-lg p-2">
             <Briefcase className="text-primary h-5 w-5" />
