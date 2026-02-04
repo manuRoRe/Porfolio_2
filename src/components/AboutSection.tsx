@@ -2,26 +2,32 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Database, Palette, Server, Zap } from "lucide-react";
 import MotionSkills from "./MotionSkills";
+import type { Skill } from "@/interfaces/Skill";
 
-const skills = {
-  frontend: [
-    "React",
-    "Vue.js",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Framer Motion",
-  ],
-  backend: [
-    "Node.js",
-    "Python",
-    "PostgreSQL",
-    "MongoDB",
-    "GraphQL",
-    "REST APIs",
-  ],
-  tools: ["Git", "Docker", "AWS", "Vercel", "Figma", "Jest"],
-};
+const frontend: Skill[] = [
+  { name: "React", icon: "/icons/reactIcon.svg" },
+  { name: "Angular", icon: "/icons/angular.svg" },
+  { name: "Laravel", icon: "/icons/laravel.svg" },
+  { name: "Tailwindcss", icon: "/icons/tailwindcss.svg" },
+  { name: "TypeScript", icon: "/icons/typescript.svg" },
+];
+
+const backend: Skill[] = [
+  { name: "Node.js", icon: "/icons/nodejs.svg" },
+  { name: "Java", icon: "/icons/java.svg" },
+  { name: "Laravel", icon: "/icons/laravel.svg" },
+  { name: "Php", icon: "/icons/php.svg" },
+  { name: "SpringBoot", icon: "/icons/spring.svg" },
+  { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
+  { name: "MongoDB", icon: "/icons/mongodb.svg" },
+];
+
+const tools: Skill[] = [
+  { name: "GitHub", icon: "/icons/github.svg" },
+  { name: "Docker", icon: "/icons/docker.svg" },
+  { name: "Figma", icon: "/icons/figma.svg" },
+  { name: "Slack", icon: "/icons/slack.svg" },
+];
 
 const highlights = [
   /*   { icon: Code2, label: "+5 años", description: "Experiencia" },
@@ -72,22 +78,52 @@ const AboutSection = () => {
             </h3>
             <div className="text-muted-foreground space-y-5">
               <p>
-                Soy un desarrollador Full Stack con más de 5 años de experiencia
-                creando aplicaciones web modernas y escalables. Mi pasión por la
-                tecnología me impulsa a mantenerme actualizado con las últimas
-                tendencias y mejores prácticas.
+                ¡Hola! Soy Manuel Romero,
+                <strong className="text-cyan-600">
+                  {" "}
+                  desarrollador Full Stack{" "}
+                </strong>
+                especializado en la creación de aplicaciones robustas para
+                múltiples plataformas.
               </p>
+
               <p>
-                Me especializo en construir experiencias de usuario
-                excepcionales, combinando diseño atractivo con código limpio y
-                eficiente. Disfruto resolviendo problemas complejos y
-                colaborando con equipos multidisciplinarios.
+                Cuento con una formación técnica integral gracias a mis dos
+                Grados Superiores:
+                <strong className="text-black/70">
+                  {" "}
+                  Desarrollo de Aplicaciones Multiplataforma (DAM) y Desarrollo
+                  de Aplicaciones Web (DAW)
+                </strong>
+                .
               </p>
-              <p>
-                Cuando no estoy programando, me gusta contribuir a proyectos
-                open source, escribir artículos técnicos y aprender nuevas
-                tecnologías.
+
+              <p className="font-semibold text-black/80">
+                Lo que aporto a tu equipo:
               </p>
+
+              <ul className="ml-5 list-disc space-y-3">
+                <li>
+                  <strong className="text-black/70">
+                    Versatilidad Técnica
+                  </strong>
+                  : Capacidad para moverme entre el desarrollo
+                  nativo/multiplataforma y el entorno web.
+                </li>
+                <li>
+                  <strong className="text-black/70">Inglés Competente</strong>:
+                  Certificación B1 por Cambridge, con puntuación equivalente a
+                  nivel <span className="font-bold text-cyan-600">B2</span>.
+                </li>
+                <li>
+                  <strong className="text-black/70">
+                    Mentalidad de Aprendizaje
+                  </strong>
+                  : Firme creyente en la formación continua. Especializado en el
+                  stack
+                  <strong className="text-cyan-600"> React + Node.js</strong>.
+                </li>
+              </ul>
             </div>
           </motion.div>
           {/* Highlights */}
@@ -100,13 +136,11 @@ const AboutSection = () => {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 className="glass-card bg-gray-100 p-4 text-center"
               >
-                <item.icon className="text-primary mx-auto mb-2 h-8 w-8" />
-                <div className="font-display gradient-text text-2xl font-bold">
+                <item.icon className="text-primary mx-auto mb-2 size-10" />
+                <div className="font-display gradient-text text-4xl font-bold">
                   {item.label}
                 </div>
-                <div className="text-muted-foreground text-sm">
-                  {item.description}
-                </div>
+                <div className="text-xl text-black/60">{item.description}</div>
               </motion.div>
             ))}
           </div>
@@ -121,9 +155,20 @@ const AboutSection = () => {
                 <h4 className="font-display text-lg font-bold">Frontend</h4>
               </div>
               <div className="flex flex-wrap gap-2">
-                {skills.frontend.map((skill) => (
-                  <span key={skill} className="skill-badge">
-                    {skill}
+                {frontend.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="skill-badge group relative"
+                    data-tooltip={skill.name}
+                  >
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="size-12"
+                    />
+                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
+                      {skill.name}
+                    </span>
                   </span>
                 ))}
               </div>
@@ -137,10 +182,21 @@ const AboutSection = () => {
                 </div>
                 <h4 className="font-display text-lg font-bold">Backend</h4>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {skills.backend.map((skill) => (
-                  <span key={skill} className="skill-badge">
-                    {skill}
+              <div className="flex flex-wrap gap-x-2 gap-y-4">
+                {backend.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="skill-badge group relative"
+                    data-tooltip={skill.name}
+                  >
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="size-12"
+                    />
+                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
+                      {skill.name}
+                    </span>
                   </span>
                 ))}
               </div>
@@ -154,10 +210,21 @@ const AboutSection = () => {
                 </div>
                 <h4 className="font-display text-lg font-bold">Herramientas</h4>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill) => (
-                  <span key={skill} className="skill-badge">
-                    {skill}
+              <div className="flex flex-wrap gap-x-2 gap-y-4">
+                {tools.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className="skill-badge group relative"
+                    data-tooltip={skill.name}
+                  >
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="size-12"
+                    />
+                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
+                      {skill.name}
+                    </span>
                   </span>
                 ))}
               </div>

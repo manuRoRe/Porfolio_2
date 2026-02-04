@@ -11,8 +11,8 @@ export const projects = [
     github: "https://github.com/manuRoRe/teslo-shop.git",
     live: undefined,
     featured: true,
-    desktopImage: "./public/projects/tesloPC.png",
-    mobileImage: "./public/projects/tesloSmPhone.png",
+    desktopImage: "/projects/tesloPC.png",
+    mobileImage: "/projects/tesloSmPhone.png",
   },
   {
     title: "Luna - Tu compañera de bienestar femenino",
@@ -22,8 +22,8 @@ export const projects = [
     github: "https://github.com/manuRoRe/Luna.git",
     live: undefined,
     featured: true,
-    desktopImage: "./public/projects/lunaPC.png",
-    mobileImage: "./public/projects/lunaSmphone.png",
+    desktopImage: "/projects/lunaPC.png",
+    mobileImage: "/projects/lunaSmphone.png",
   },
   {
     title: "Heroes App",
@@ -33,8 +33,8 @@ export const projects = [
     github: "https://github.com/manuRoRe/heroes-app.git",
     live: undefined,
     featured: true,
-    desktopImage: "./public/projects/heroesPC.png",
-    mobileImage: "./public/projects/heroesSmPhone.png",
+    desktopImage: "/projects/heroesPC.png",
+    mobileImage: "/projects/heroesSmPhone.png",
   },
 ];
 
