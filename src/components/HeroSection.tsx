@@ -10,7 +10,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(public/hero-bg.webp)` }}
+        style={{ backgroundImage: `url(/hero-bg.webp)` }}
       />
       <div className="from-background/80 via-background/60 to-background absolute inset-0 bg-gradient-to-b" />
 

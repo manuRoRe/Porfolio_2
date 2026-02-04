@@ -53,7 +53,7 @@ const AboutSection = () => {
         >
           <img
             className="size-16 rounded-full object-cover"
-            src="public/fotoPersonal.jpg"
+            src="/fotoPersonal.jpg"
             alt="Manuel Romero"
           />
           <h2 className="font-display text-4xl font-bold sm:text-5xl">

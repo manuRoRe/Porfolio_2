@@ -7,7 +7,7 @@ import {
   Send,
   Github,
   Linkedin,
-  Twitter,
+  Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -15,22 +15,25 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hola@developer.com",
-    href: "mailto:hola@developer.com",
+    value: "manuelromeroreyes.mrr@gmail.com",
+    href: "mailto:manuelromeroreyes.mrr@gmail.com",
   },
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+34 600 000 000",
-    href: "tel:+34600000000",
+    value: "+34 635 52 08 51",
+    href: "tel:+34635520851",
   },
-  { icon: MapPin, label: "Ubicación", value: "Madrid, España", href: null },
+  { icon: MapPin, label: "Ubicación", value: "Córdoba, España", href: null },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/manuRoRe", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/manuel-romero-reyes-206578381/",
+    label: "LinkedIn",
+  },
 ];
 
 const ContactSection = () => {
@@ -39,18 +42,52 @@ const ContactSection = () => {
   const isTitleInView = useInView(titleRef, { once: true });
   const isFormInView = useInView(formRef, { once: true });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast("¡Mensaje enviado!", {
-      description: "Gracias por contactarme. Te responderé pronto.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    const accessKey = "26464962-71e8-4d7d-b2cb-37a5d4a4a6bf";
+
+    const payload = {
+      ...formData,
+      access_key: accessKey,
+      subject: `Nuevo mensaje de porfolio: ${formData.name}`,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("¡Mensaje enviado!", {
+          description: "Gracias Manuel, te responderé lo antes posible.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Error en el envío");
+      }
+    } catch (error) {
+      toast.error("Vaya, algo ha fallado", {
+        description: "Por favor, inténtalo de nuevo más tarde.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,7 +130,8 @@ const ContactSection = () => {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
+                disabled={isSubmitting}
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="Tu nombre"
               />
             </div>
@@ -109,7 +147,8 @@ const ContactSection = () => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
+                disabled={isSubmitting}
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="tu@email.com"
               />
             </div>
@@ -128,13 +167,22 @@ const ContactSection = () => {
                 }
                 required
                 rows={5}
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full resize-none rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
+                disabled={isSubmitting}
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full resize-none rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
             </div>
-            <button type="submit" className="btn-primary w-full gap-2">
-              <Send className="h-5 w-5" />
-              Enviar mensaje
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 py-3 text-white transition-colors hover:bg-cyan-700 disabled:bg-gray-400"
+            >
+              {isSubmitting ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                <Send className="h-5 w-5" />
+              )}
+              {isSubmitting ? "Enviando..." : "Enviar mensaje"}
             </button>
           </motion.form>
 
