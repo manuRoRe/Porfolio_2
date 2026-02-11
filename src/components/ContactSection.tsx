@@ -31,7 +31,7 @@ const socialLinks = [
   { icon: Github, href: "https://github.com/manuRoRe", label: "GitHub" },
   {
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/manuel-romero-reyes-206578381/",
+    href: "https://www.linkedin.com/in/manuelromerodev/",
     label: "LinkedIn",
   },
 ];
@@ -91,32 +91,35 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="bg-secondary/20 py-24">
-      <div className="section-container">
+    <section
+      id="contacto"
+      className="bg-secondary/20 overflow-hidden py-12 sm:py-24"
+    >
+      <div className="section-container px-4">
         <motion.div
           ref={titleRef}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-12 text-center sm:mb-16"
         >
-          <h2 className="font-display mb-4 text-4xl font-bold sm:text-5xl">
+          <h2 className="font-display mb-4 text-3xl font-bold sm:text-5xl">
             Contacta <span className="gradient-text">Conmigo</span>
           </h2>
-          <p className="text-muted-foreground mx-auto max-w-2xl">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-sm sm:text-base">
             ¿Tienes un proyecto en mente o simplemente quieres saludar? Estaré
             encantado de escucharte.
           </p>
         </motion.div>
 
-        <div ref={formRef} className="grid gap-12 lg:grid-cols-2">
-          {/* Contact Form */}
+        <div ref={formRef} className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Formulario: Cambiado de x: -30 a y: 20 */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: -30 }}
-            animate={isFormInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isFormInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="glass-card space-y-6 bg-gray-100 p-8"
+            className="glass-card space-y-6 bg-gray-100 p-6 sm:p-8"
           >
             <div>
               <label htmlFor="name" className="mb-2 block text-sm font-medium">
@@ -131,7 +134,7 @@ const ContactSection = () => {
                 }
                 required
                 disabled={isSubmitting}
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 text-sm transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="Tu nombre"
               />
             </div>
@@ -148,7 +151,7 @@ const ContactSection = () => {
                 }
                 required
                 disabled={isSubmitting}
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full rounded-xl border px-4 py-3 text-sm transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="tu@email.com"
               />
             </div>
@@ -168,14 +171,14 @@ const ContactSection = () => {
                 required
                 rows={5}
                 disabled={isSubmitting}
-                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full resize-none rounded-xl border px-4 py-3 transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
+                className="bg-secondary/50 border-border focus:border-primary focus:ring-primary/20 w-full resize-none rounded-xl border px-4 py-3 text-sm transition-all focus:ring-2 focus:outline-none disabled:opacity-50"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
             </div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 py-3 text-white transition-colors hover:bg-cyan-700 disabled:bg-gray-400"
+              className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 py-3 font-bold text-white transition-colors hover:bg-cyan-700 disabled:bg-gray-400"
             >
               {isSubmitting ? (
                 <Loader2 className="h-5 w-5 animate-spin" />
@@ -186,20 +189,19 @@ const ContactSection = () => {
             </button>
           </motion.form>
 
-          {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isFormInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isFormInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-10"
+            className="space-y-6 sm:space-y-10"
           >
             {contactInfo.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isFormInView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isFormInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="glass-card bg-gray-100 p-6"
+                className="glass-card bg-gray-100 p-5 sm:p-6"
               >
                 {item.href ? (
                   <a href={item.href} className="group flex items-center gap-4">
@@ -210,7 +212,7 @@ const ContactSection = () => {
                       <div className="text-muted-foreground text-sm">
                         {item.label}
                       </div>
-                      <div className="group-hover:text-primary font-medium transition-colors">
+                      <div className="group-hover:text-primary font-medium break-all transition-colors">
                         {item.value}
                       </div>
                     </div>

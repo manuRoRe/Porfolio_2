@@ -18,31 +18,35 @@ export const ExperienceCard = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="relative pb-12 pl-8 last:pb-0"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative overflow-visible pb-12 pl-8 last:pb-0"
     >
       {/* Timeline Line */}
       <div className="from-primary absolute top-4 bottom-0 left-[7px] w-px bg-gradient-to-b to-transparent" />
 
       {/* Timeline Dot */}
-      <div className="timeline-dot absolute top-1 left-0" />
+      <div className="timeline-dot absolute top-1 left-0 z-10" />
 
-      <div className="glass-card hover:border-primary/30 ml-4 bg-gray-100 p-6 transition-all duration-300">
+      <div className="glass-card hover:border-primary/30 ml-4 min-w-0 bg-gray-100 p-6 transition-all duration-300">
         <div className="mb-4 flex flex-wrap items-center gap-4">
-          <div className="bg-primary/10 rounded-lg p-2">
+          <div className="bg-primary/10 shrink-0 rounded-lg p-2">
             <Briefcase className="text-primary h-5 w-5" />
           </div>
-          <div>
-            <h3 className="font-display text-xl font-bold">
+          <div className="min-w-0 flex-1">
+            {" "}
+            <h3 className="font-display text-lg font-bold break-words sm:text-xl">
               {experience.title}
             </h3>
-            <p className="text-primary font-medium">{experience.company}</p>
+            <p className="text-primary text-sm font-medium sm:text-base">
+              {experience.company}
+            </p>
           </div>
-          <div className="text-muted-foreground ml-auto flex items-center gap-2">
+          {/* En móvil, la fecha pasará abajo automáticamente gracias al flex-wrap */}
+          <div className="text-muted-foreground flex items-center gap-2 sm:ml-auto">
             <Calendar className="h-4 w-4" />
-            <span className="text-sm">{experience.period}</span>
+            <span className="text-xs sm:text-sm">{experience.period}</span>
           </div>
         </div>
 

@@ -24,7 +24,7 @@ const HeroSection = () => {
             className="mb-6"
           >
             <a
-              href="https://www.linkedin.com/in/manuel-romero-reyes-206578381/"
+              href="https://www.linkedin.com/in/manuelromerodev/"
               target="_blank"
             >
               <span className="bg-primary/10 text-primary border-primary/20 inline-block rounded-full border px-4 py-2 text-sm font-bold transition-all hover:scale-120 hover:bg-cyan-700/50 hover:text-white">
@@ -84,7 +84,7 @@ const HeroSection = () => {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://www.linkedin.com/in/manuel-romero-reyes-206578381/"
+              href="https://www.linkedin.com/in/manuelromerodev/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card hover:border-primary/50 p-3 transition-all duration-300"

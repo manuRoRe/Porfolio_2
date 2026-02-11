@@ -17,7 +17,7 @@ export const projects = [
   {
     title: "Luna - Tu compañera de bienestar femenino",
     description:
-      "Aplicación de ayuda y bienestar femenino con seguimiento del ciclo consejos de bienestar y login con verificacion de email.",
+      "Aplicación de ayuda y bienestar femenino con seguimiento del ciclo, consejos de bienestar y login con verificacion de email.",
     technologies: ["Laravel", "PHP", "Github", "MySQL"],
     github: "https://github.com/manuRoRe/Luna.git",
     live: undefined,
