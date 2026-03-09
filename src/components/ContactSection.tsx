@@ -178,7 +178,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 py-3 font-bold text-white transition-colors hover:bg-cyan-700 disabled:bg-gray-400"
+              className="btn-primary w-full gap-2"
             >
               {isSubmitting ? (
                 <Loader2 className="h-5 w-5 animate-spin" />
@@ -248,7 +248,7 @@ const ContactSection = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary/50 hover:bg-primary/10 hover:text-primary border-border hover:border-primary/30 rounded-xl border p-3 transition-all duration-300"
+                    className="btn-network"
                     aria-label={social.label}
                   >
                     <social.icon className="h-5 w-5" />

@@ -79,7 +79,7 @@ const HeroSection = () => {
               href="https://github.com/manuRoRe"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
+              className="btn-network"
             >
               <Github className="h-6 w-6" />
             </a>
@@ -87,13 +87,13 @@ const HeroSection = () => {
               href="https://www.linkedin.com/in/manuelromerodev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
+              className="btn-network"
             >
               <Linkedin className="h-6 w-6" />
             </a>
             <a
               href="mailto:manuelromeroreyes.mrr@gmail.com"
-              className="glass-card hover:border-primary/50 p-3 transition-all duration-300"
+              className="btn-network"
             >
               <Mail className="h-6 w-6" />
             </a>

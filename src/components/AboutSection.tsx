@@ -146,90 +146,24 @@ const AboutSection = () => {
           </div>
 
           {/* Skills */}
-          <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card p-6">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="bg-primary/10 rounded-lg p-2">
-                  <Palette className="text-primary h-5 w-5" />
-                </div>
-                <h4 className="font-display text-lg font-bold">Frontend</h4>
-              </div>
-              <div className="flex flex-wrap justify-center gap-2">
-                {frontend.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="skill-badge group relative bg-white/20"
-                    data-tooltip={skill.name}
-                  >
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="size-12"
-                    />
-                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
-                      {skill.name}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </MotionSkills>
-          <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card p-6">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="bg-primary/10 rounded-lg p-2">
-                  <Server className="text-primary h-5 w-5" />
-                </div>
-                <h4 className="font-display text-lg font-bold">Backend</h4>
-              </div>
-              <div className="flex flex-wrap justify-center gap-x-2 gap-y-4">
-                {backend.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="skill-badge group relative bg-white/20"
-                    data-tooltip={skill.name}
-                  >
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="size-12"
-                    />
-                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
-                      {skill.name}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </MotionSkills>
-          <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card p-6">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="bg-primary/10 rounded-lg p-2">
-                  <Database className="text-primary h-5 w-5" />
-                </div>
-                <h4 className="font-display text-lg font-bold">Herramientas</h4>
-              </div>
-              <div className="flex flex-wrap justify-center gap-x-2 gap-y-4">
-                {tools.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="skill-badge group relative bg-white/20"
-                    data-tooltip={skill.name}
-                  >
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="size-12"
-                    />
-                    <span className="absolute top-15 left-1/2 -translate-x-1/2 scale-0 rounded p-2 text-xs text-black transition-all group-hover:scale-100">
-                      {skill.name}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </MotionSkills>
+          <MotionSkills
+            isContentInView={isContentInView}
+            title="Frontend"
+            icon={Palette}
+            skills={frontend}
+          ></MotionSkills>
+          <MotionSkills
+            isContentInView={isContentInView}
+            title="Backend"
+            icon={Server}
+            skills={backend}
+          ></MotionSkills>
+          <MotionSkills
+            isContentInView={isContentInView}
+            title="Herramientas"
+            icon={Database}
+            skills={tools}
+          ></MotionSkills>
         </div>
       </div>
     </section>
