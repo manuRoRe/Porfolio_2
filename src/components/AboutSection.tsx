@@ -154,7 +154,7 @@ const AboutSection = () => {
                 </div>
                 <h4 className="font-display text-lg font-bold">Frontend</h4>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {frontend.map((skill) => (
                   <span
                     key={skill.name}
@@ -182,7 +182,7 @@ const AboutSection = () => {
                 </div>
                 <h4 className="font-display text-lg font-bold">Backend</h4>
               </div>
-              <div className="flex flex-wrap gap-x-2 gap-y-4">
+              <div className="flex flex-wrap justify-center gap-x-2 gap-y-4">
                 {backend.map((skill) => (
                   <span
                     key={skill.name}
@@ -210,7 +210,7 @@ const AboutSection = () => {
                 </div>
                 <h4 className="font-display text-lg font-bold">Herramientas</h4>
               </div>
-              <div className="flex flex-wrap gap-x-2 gap-y-4">
+              <div className="flex flex-wrap justify-center gap-x-2 gap-y-4">
                 {tools.map((skill) => (
                   <span
                     key={skill.name}
