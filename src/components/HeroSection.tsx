@@ -64,7 +64,7 @@ const HeroSection = () => {
             <a href="#proyectos" className="btn-primary">
               Ver proyectos
             </a>
-            <a href="#contacto" className="btn-outline bg-white">
+            <a href="#contacto" className="btn-outline">
               Contáctame
             </a>
           </motion.div>

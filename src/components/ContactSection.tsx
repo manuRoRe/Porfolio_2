@@ -119,7 +119,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isFormInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="glass-card space-y-6 bg-gray-100 p-6 sm:p-8"
+            className="glass-card space-y-6 p-6 sm:p-8"
           >
             <div>
               <label htmlFor="name" className="mb-2 block text-sm font-medium">
@@ -201,7 +201,7 @@ const ContactSection = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isFormInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="glass-card bg-gray-100 p-5 sm:p-6"
+                className="glass-card p-5 sm:p-6"
               >
                 {item.href ? (
                   <a href={item.href} className="group flex items-center gap-4">
@@ -238,7 +238,7 @@ const ContactSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isFormInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="glass-card bg-gray-100 p-6"
+              className="glass-card p-6"
             >
               <h4 className="font-display mb-4 font-bold">Sígueme</h4>
               <div className="flex gap-4">

@@ -90,7 +90,7 @@ const AboutSection = () => {
               <p>
                 Cuento con una formación técnica integral gracias a mis dos
                 Grados Superiores:
-                <strong className="text-black/70">
+                <strong className="text-white/80">
                   {" "}
                   Desarrollo de Aplicaciones Multiplataforma (DAM) y Desarrollo
                   de Aplicaciones Web (DAW)
@@ -98,25 +98,25 @@ const AboutSection = () => {
                 .
               </p>
 
-              <p className="font-semibold text-black/80">
+              <p className="font-semibold text-white/80">
                 Lo que aporto a tu equipo:
               </p>
 
               <ul className="ml-5 list-disc space-y-3">
                 <li>
-                  <strong className="text-black/70">
+                  <strong className="text-white/80">
                     Versatilidad Técnica
                   </strong>
                   : Capacidad para moverme entre el desarrollo
                   nativo/multiplataforma y el entorno web.
                 </li>
                 <li>
-                  <strong className="text-black/70">Inglés Competente</strong>:
+                  <strong className="text-white/80">Inglés Competente</strong>:
                   Certificación B1 por Cambridge, con puntuación equivalente a
                   nivel <span className="font-bold text-cyan-600">B2</span>.
                 </li>
                 <li>
-                  <strong className="text-black/70">
+                  <strong className="text-white/80">
                     Mentalidad de Aprendizaje
                   </strong>
                   : Firme creyente en la formación continua. Especializado en el
@@ -134,7 +134,7 @@ const AboutSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isContentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="glass-card bg-gray-100 p-4 text-center"
+                className="glass-card p-4 text-center"
               >
                 <item.icon className="text-primary mx-auto mb-2 size-10" />
                 <div className="font-display gradient-text text-4xl font-bold">
@@ -147,7 +147,7 @@ const AboutSection = () => {
 
           {/* Skills */}
           <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card bg-gray-100 p-6">
+            <div className="glass-card p-6">
               <div className="mb-4 flex items-center gap-3">
                 <div className="bg-primary/10 rounded-lg p-2">
                   <Palette className="text-primary h-5 w-5" />
@@ -158,7 +158,7 @@ const AboutSection = () => {
                 {frontend.map((skill) => (
                   <span
                     key={skill.name}
-                    className="skill-badge group relative"
+                    className="skill-badge group relative bg-white/20"
                     data-tooltip={skill.name}
                   >
                     <img
@@ -175,7 +175,7 @@ const AboutSection = () => {
             </div>
           </MotionSkills>
           <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card bg-gray-100 p-6">
+            <div className="glass-card p-6">
               <div className="mb-4 flex items-center gap-3">
                 <div className="bg-primary/10 rounded-lg p-2">
                   <Server className="text-primary h-5 w-5" />
@@ -186,7 +186,7 @@ const AboutSection = () => {
                 {backend.map((skill) => (
                   <span
                     key={skill.name}
-                    className="skill-badge group relative"
+                    className="skill-badge group relative bg-white/20"
                     data-tooltip={skill.name}
                   >
                     <img
@@ -203,7 +203,7 @@ const AboutSection = () => {
             </div>
           </MotionSkills>
           <MotionSkills isContentInView={isContentInView}>
-            <div className="glass-card bg-gray-100 p-6">
+            <div className="glass-card p-6">
               <div className="mb-4 flex items-center gap-3">
                 <div className="bg-primary/10 rounded-lg p-2">
                   <Database className="text-primary h-5 w-5" />
@@ -214,7 +214,7 @@ const AboutSection = () => {
                 {tools.map((skill) => (
                   <span
                     key={skill.name}
-                    className="skill-badge group relative"
+                    className="skill-badge group relative bg-white/20"
                     data-tooltip={skill.name}
                   >
                     <img

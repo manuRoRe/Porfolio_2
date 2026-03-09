@@ -29,12 +29,12 @@ export const ExperienceCard = ({
       {/* Timeline Dot */}
       <div className="timeline-dot absolute top-1 left-0 z-10" />
 
-      <div className="glass-card hover:border-primary/30 ml-4 min-w-0 bg-gray-100 p-6 transition-all duration-300">
+      <div className="glass-card hover:border-primary/30 ml-4 min-w-0 p-6 transition-all duration-300">
         <div className="mb-4 flex flex-wrap items-center gap-4">
           <div className="bg-primary/10 shrink-0 rounded-lg p-2">
             <Briefcase className="text-primary h-5 w-5" />
           </div>
-          <div className="min-w-0 flex-1">
+          <div className="flex-1">
             {" "}
             <h3 className="font-display text-lg font-bold break-words sm:text-xl">
               {experience.title}

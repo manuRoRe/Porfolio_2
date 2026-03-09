@@ -102,7 +102,7 @@ const FeaturedProjectsShowcase = () => {
           </div>
 
           {/* Right side - Project Info */}
-          <div className="flex flex-col justify-center bg-gray-100 p-8 lg:p-12">
+          <div className="flex flex-col justify-center p-8 lg:p-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
