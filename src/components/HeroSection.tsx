@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import BorderGlow from "./ui/BorderGlow";
 
 const HeroSection = () => {
   return (
@@ -21,16 +22,15 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6"
+            className="mb-12"
           >
-            <a
-              href="https://www.linkedin.com/in/manuelromerodev/"
-              target="_blank"
-            >
-              <span className="bg-primary/10 text-primary border-primary/20 inline-block rounded-full border px-4 py-2 text-sm font-bold transition-all hover:scale-120 hover:bg-cyan-700/50 hover:text-white">
-                👋 Disponible para trabajar
-              </span>
-            </a>
+            <BorderGlow>
+              <div style={{ padding: "0.5em" }}>
+                <h1 className="font-display px-4 font-semibold dark:text-white">
+                  Trabajando como Profesor de Bootcamp FullStack
+                </h1>
+              </div>
+            </BorderGlow>
           </motion.div>
 
           <motion.h1

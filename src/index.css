@@ -3,39 +3,100 @@
 @import "tailwindcss";
 @import "flowbite-react/plugin/tailwindcss";
 @import "tw-animate-css";
+
 @source "../.flowbite-react/class-list.json";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* En Tailwind v4, DEBEMOS declarar los colores en @theme 
-  para que el motor genere utilidades como 'border-border' o 'bg-background' 
-*/
-@theme {
+@theme inline {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
+
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
+
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
+
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
+
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
+
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+
   --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+
+  --color-brand-secondary: hsl(var(--brand-secondary));
 }
 
 @layer base {
   :root {
+    color-scheme: light;
+
+    /* LIGHT MODE */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 175, 42%, 94%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 174 72% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 174 70% 92%;
+    --accent-foreground: 174 72% 22%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 174 72% 30%;
+
+    --brand-secondary: 199 89% 36%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 174 72% 30%;
+    --glow-secondary: 199 89% 36%;
+    --gradient-start: 174 72% 30%;
+    --gradient-end: 199 89% 36%;
+
+    --glass-bg: 0 0% 100% / 0.72;
+    --glass-border: 214 32% 85% / 0.55;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    /* DARK MODE: tus valores originales */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 221, 51%, 10%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222 47% 8%;
@@ -60,7 +121,7 @@
     --input: 222 30% 18%;
     --ring: 174 72% 56%;
 
-    --radius: 0.75rem;
+    --brand-secondary: 199 89% 48%;
 
     --glow-primary: 174 72% 56%;
     --glow-secondary: 199 89% 48%;
@@ -72,20 +133,17 @@
   }
 
   * {
-    /* Ahora border-border ya existe porque está en @theme */
     @apply border-border;
   }
 
   html {
-    scroll-behavior: smooth;
     max-width: 100%;
     overflow-x: hidden;
-    position: relative;
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: "Inter", sans-serif;
   }
 
   h1,
@@ -94,38 +152,55 @@
   h4,
   h5,
   h6 {
-    font-family: "Space Grotesk", sans-serif;
+    @apply font-display;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-card/80 border-border/30 rounded-xl border backdrop-blur-xl;
+    @apply rounded-xl border backdrop-blur-xl;
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--glass-border));
   }
 
   .gradient-text {
-    /* En v4 bg-gradient-to-r cambia a bg-linear-to-r o se mantiene dependiendo de plugins, pero usa esta sintaxis segura */
-    @apply from-primary bg-linear-to-r to-cyan-400 bg-clip-text text-transparent;
+    @apply from-primary to-brand-secondary bg-linear-to-r bg-clip-text text-transparent;
   }
 
   .glow-effect {
     box-shadow:
-      0 0 40px hsl(var(--primary) / 0.3),
-      0 0 80px hsl(var(--primary) / 0.1);
+      0 0 40px hsl(var(--glow-primary) / 0.3),
+      0 0 80px hsl(var(--glow-primary) / 0.1);
   }
 
   .glow-border {
-    @apply relative;
+    @apply relative rounded-xl;
   }
 
   .glow-border::before {
     content: "";
-    @apply absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(199 89% 48%));
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border-radius: inherit;
+    padding: 1px;
+    opacity: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+    transition: opacity 300ms ease;
+
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
 
   .glow-border:hover::before {
-    @apply opacity-100;
+    opacity: 1;
   }
 
   .section-container {
@@ -138,7 +213,7 @@
 
   .nav-link::after {
     content: "";
-    @apply from-primary absolute -bottom-1 left-0 h-0.5 w-0 bg-linear-to-r to-cyan-400 transition-all duration-300;
+    @apply from-primary to-brand-secondary absolute -bottom-1 left-0 h-0.5 w-0 bg-linear-to-r transition-all duration-300;
   }
 
   .nav-link:hover::after,
@@ -147,39 +222,37 @@
   }
 
   .skill-badge {
-    @apply bg-secondary/50 text-foreground border-border/50 hover:border-primary/50 hover:bg-primary/10 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300;
+    @apply border-border/50 bg-secondary/50 text-foreground hover:border-primary/50 hover:bg-primary/10 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300;
   }
 
   .project-card {
-    @apply hover:border-primary/30 p-6 transition-all duration-500;
+    @apply hover:border-primary/30 p-6 transition-all duration-500 hover:-translate-y-2;
   }
 
   .project-card:hover {
-    @apply -translate-y-2 transform;
-    box-shadow: 0 20px 60px hsl(var(--primary) / 0.15);
+    box-shadow: 0 20px 60px hsl(var(--glow-primary) / 0.15);
   }
 
   .timeline-dot {
-    @apply bg-primary border-background relative z-10 h-4 w-4 rounded-full border-4;
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+    @apply border-background bg-primary relative z-10 h-4 w-4 rounded-full border-4;
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5);
   }
 
   .btn-primary {
-    @apply text-primary-foreground from-primary inline-flex items-center justify-center rounded-xl bg-gradient-to-r to-cyan-400 px-8 py-4 font-semibold transition-all duration-300 hover:opacity-90;
-    box-shadow: 0 10px 40px hsl(var(--primary) / 0.4);
+    @apply from-primary to-brand-secondary text-primary-foreground inline-flex items-center justify-center rounded-xl bg-linear-to-r px-8 py-4 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90;
+    box-shadow: 0 10px 40px hsl(var(--glow-primary) / 0.4);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 15px 50px hsl(var(--primary) / 0.5);
-    transform: translateY(-2px);
+    box-shadow: 0 15px 50px hsl(var(--glow-primary) / 0.5);
   }
 
   .btn-outline {
-    @apply text-foreground border-border hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 bg-white/20 px-8 py-4 font-semibold transition-all duration-300;
+    @apply border-border bg-card/70 text-foreground hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 px-8 py-4 font-semibold transition-all duration-300;
   }
 
   .btn-network {
-    @apply text-foreground border-border hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 bg-transparent p-3 transition-all duration-300;
+    @apply border-border text-foreground hover:border-primary hover:text-primary inline-flex items-center justify-center rounded-xl border-2 bg-transparent p-3 transition-all duration-300;
   }
 }
 
@@ -202,6 +275,7 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -210,9 +284,10 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.4);
   }
+
   50% {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.7);
+    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.7);
   }
 }
