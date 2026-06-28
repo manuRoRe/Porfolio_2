@@ -79,7 +79,7 @@ const AboutSection = () => {
             <div className="text-muted-foreground space-y-5">
               <p>
                 ¡Hola! Soy Manuel Romero,
-                <strong className="text-cyan-600">
+                <strong className="text-primary">
                   {" "}
                   desarrollador Full Stack{" "}
                 </strong>
@@ -90,7 +90,7 @@ const AboutSection = () => {
               <p>
                 Cuento con una formación técnica integral gracias a mis dos
                 Grados Superiores:
-                <strong className="text-white/80">
+                <strong className="text-black/80 dark:text-white/80">
                   {" "}
                   Desarrollo de Aplicaciones Multiplataforma (DAM) y Desarrollo
                   de Aplicaciones Web (DAW)
@@ -98,30 +98,32 @@ const AboutSection = () => {
                 .
               </p>
 
-              <p className="font-semibold text-white/80">
+              <p className="font-bold text-black/80 dark:text-white/80">
                 Lo que aporto a tu equipo:
               </p>
 
               <ul className="ml-5 list-disc space-y-3">
                 <li>
-                  <strong className="text-white/80">
+                  <strong className="text-black/80 dark:text-white/80">
                     Versatilidad Técnica
                   </strong>
                   : Capacidad para moverme entre el desarrollo
                   nativo/multiplataforma y el entorno web.
                 </li>
                 <li>
-                  <strong className="text-white/80">Inglés Competente</strong>:
-                  Certificación B1 por Cambridge, con puntuación equivalente a
-                  nivel <span className="font-bold text-cyan-600">B2</span>.
+                  <strong className="text-black/80 dark:text-white/80">
+                    Inglés Competente
+                  </strong>
+                  : Certificación B1 por Cambridge, con puntuación equivalente a
+                  nivel <span className="text-primary font-bold">B2</span>.
                 </li>
                 <li>
-                  <strong className="text-white/80">
+                  <strong className="text-black/80 dark:text-white/80">
                     Mentalidad de Aprendizaje
                   </strong>
                   : Firme creyente en la formación continua. Especializado en el
                   stack
-                  <strong className="text-cyan-600"> React + Node.js</strong>.
+                  <strong className="text-primary"> React + Node.js</strong>.
                 </li>
               </ul>
             </div>

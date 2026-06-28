@@ -274,7 +274,7 @@ const CardNav: React.FC<CardNavProps> = ({
               <h2 className="text-center text-xl font-medium tracking-[-0.4px] md:text-left">
                 Personalize the experience
               </h2>
-              <div className="dark:text-primary mt-3 flex items-center justify-center gap-2 text-center text-white md:justify-start">
+              <div className="dark:text-primary text-foreground mt-3 flex items-center justify-center gap-2 text-center md:justify-start">
                 <Palette className="h-4 w-4" />
                 <span className="text-xs font-semibold tracking-[0.14em] uppercase">
                   Appearance

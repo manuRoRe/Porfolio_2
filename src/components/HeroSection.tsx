@@ -1,19 +1,43 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import BorderGlow from "./ui/BorderGlow";
+import FloatingLines from "./FloatingLines";
 
 const HeroSection = () => {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="dark:bg-background relative flex min-h-screen items-center justify-center overflow-hidden bg-[#b3dfdb] pb-2"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(/hero-bg.webp)` }}
-      />
-      <div className="from-background/80 via-background/60 to-background absolute inset-0 bg-gradient-to-b" />
+      <div className="absolute inset-0 hidden dark:block">
+        <FloatingLines
+          linesGradient={["#3ee0cf", "#121c34", "#3ee0cf"]}
+          mixBlendMode="normal"
+          interactive
+          animationSpeed={1}
+          bendRadius={2.5}
+          bendStrength={0.3}
+          mouseDamping={0.05}
+          parallax
+          parallaxStrength={0.2}
+        />
+      </div>
+
+      <div className="absolute inset-0 dark:hidden">
+        <FloatingLines
+          linesGradient={["#0f766e", "#1e3a8a", "#14b8a6"]}
+          mixBlendMode="normal"
+          interactive
+          animationSpeed={1}
+          bendRadius={2.5}
+          bendStrength={0.3}
+          mouseDamping={0.05}
+          parallax
+          parallaxStrength={0.2}
+        />
+      </div>
+
+      <div className="dark:from-background/80 dark:via-background/60 dark:to-background pointer-events-none absolute inset-0 bg-gradient-to-b from-[#3ee0cf]/10 via-[#3ee0cf]/5 to-[#ffffff]/90" />
 
       {/* Content */}
       <div className="section-container relative z-10 pt-20">
@@ -26,7 +50,7 @@ const HeroSection = () => {
           >
             <BorderGlow>
               <div style={{ padding: "0.5em" }}>
-                <h1 className="font-display px-4 font-semibold dark:text-white">
+                <h1 className="font-display text-foreground px-4 font-semibold">
                   Trabajando como Profesor de Bootcamp FullStack
                 </h1>
               </div>
@@ -37,7 +61,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display mb-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            className="font-display mb-6 text-5xl font-bold text-white sm:text-6xl lg:text-7xl"
           >
             Creando experiencias
             <br />
@@ -109,7 +133,7 @@ const HeroSection = () => {
         >
           <a
             href="#experiencia"
-            className="text-muted-foreground hover:text-primary flex flex-col items-center gap-2 transition-colors"
+            className="text-muted-foreground hover:text-primary hidden flex-col items-center gap-2 transition-colors lg:flex"
           >
             <span className="text-sm">Scroll</span>
             <ArrowDown className="h-5 w-5 animate-bounce" />

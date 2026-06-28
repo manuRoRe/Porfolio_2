@@ -14,7 +14,7 @@ export function ModeToggle() {
 
   return (
     <section className="mt-2 flex flex-col justify-center md:mt-0">
-      <h1 className="text-background nav-card-label my-2 text-center text-[18px] font-normal tracking-[-0.5px] md:text-[22px] dark:text-white">
+      <h1 className="nav-card-label text-foreground my-2 text-center text-[18px] font-normal tracking-[-0.5px] md:text-[22px]">
         Theme
       </h1>
       <div

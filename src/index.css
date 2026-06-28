@@ -57,7 +57,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 174 72% 30%;
+    --primary: 174, 72%, 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -164,7 +164,7 @@
   }
 
   .gradient-text {
-    @apply from-primary to-brand-secondary bg-linear-to-r bg-clip-text text-transparent;
+    @apply dark:from-primary dark:to-brand-secondary bg-linear-to-r dark:bg-clip-text dark:text-transparent;
   }
 
   .glow-effect {

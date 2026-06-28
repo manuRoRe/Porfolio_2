@@ -248,7 +248,7 @@ const BorderGlow: React.FC<BorderGlowProps> = ({
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      className={`bg-background border-primary/70 relative isolate inline-grid border ${className}`}
+      className={`bg-background border-primary/70 relative isolate hidden border lg:inline-grid ${className}`}
       style={{
         borderRadius: `${borderRadius}px`,
         transform: "translate3d(0, 0, 0.01px)",
