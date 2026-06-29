@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import BorderGlow from "./ui/BorderGlow";
-import FloatingLines from "./FloatingLines";
+import { HeroBackground } from "./HeroBackground";
+import { ScrollArrow } from "./ScrollArrow";
+import { BoxLink } from "./BoxLink";
 
 const HeroSection = () => {
   return (
@@ -9,35 +11,7 @@ const HeroSection = () => {
       id="inicio"
       className="dark:bg-background relative flex min-h-screen items-center justify-center overflow-hidden bg-[#b3dfdb] pb-2"
     >
-      <div className="absolute inset-0 hidden dark:block">
-        <FloatingLines
-          linesGradient={["#3ee0cf", "#121c34", "#3ee0cf"]}
-          mixBlendMode="normal"
-          interactive
-          animationSpeed={1}
-          bendRadius={2.5}
-          bendStrength={0.3}
-          mouseDamping={0.05}
-          parallax
-          parallaxStrength={0.2}
-        />
-      </div>
-
-      <div className="absolute inset-0 dark:hidden">
-        <FloatingLines
-          linesGradient={["#0f766e", "#1e3a8a", "#14b8a6"]}
-          mixBlendMode="normal"
-          interactive
-          animationSpeed={1}
-          bendRadius={2.5}
-          bendStrength={0.3}
-          mouseDamping={0.05}
-          parallax
-          parallaxStrength={0.2}
-        />
-      </div>
-
-      <div className="dark:from-background/80 dark:via-background/60 dark:to-background pointer-events-none absolute inset-0 bg-gradient-to-b from-[#3ee0cf]/10 via-[#3ee0cf]/5 to-[#ffffff]/90" />
+      <HeroBackground />
 
       {/* Content */}
       <div className="section-container relative z-10 pt-20">
@@ -99,46 +73,19 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center gap-6"
           >
-            <a
-              href="https://github.com/manuRoRe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-network"
-            >
-              <Github className="h-6 w-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/manuelromerodev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-network"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a
-              href="mailto:manuelromeroreyes.mrr@gmail.com"
-              className="btn-network"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
+            <BoxLink link="https://github.com/manuRoRe" icon={Github} />
+            <BoxLink
+              link="https://www.linkedin.com/in/manuelromerodev/"
+              icon={Linkedin}
+            />
+            <BoxLink
+              link="mailto:manuelromeroreyes.mrr@gmail.com"
+              icon={Mail}
+            />
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute left-1/2 mt-4 -translate-x-1/2"
-        >
-          <a
-            href="#experiencia"
-            className="text-muted-foreground hover:text-primary hidden flex-col items-center gap-2 transition-colors lg:flex"
-          >
-            <span className="text-sm">Scroll</span>
-            <ArrowDown className="h-5 w-5 animate-bounce" />
-          </a>
-        </motion.div>
+        <ScrollArrow />
       </div>
     </section>
   );
