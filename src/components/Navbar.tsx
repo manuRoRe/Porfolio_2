@@ -111,16 +111,9 @@ const Navbar = () => {
         pointerEvents: showNav ? "auto" : "none",
         willChange: "transform",
       }}
-      className="fixed top-0 right-0 left-0 z-50"
+      className="fixed top-0 right-0 left-0 z-[99]"
     >
-      <CardNav
-        items={items}
-        baseColor="#fff"
-        menuColor="#000"
-        buttonBgColor="#111"
-        buttonTextColor="#fff"
-        ease="power3.out"
-      />
+      <CardNav items={items} ease="power3.out" />
     </motion.nav>
   );
 };
