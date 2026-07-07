@@ -23,11 +23,17 @@ const HeroSection = () => {
             className="mb-12"
           >
             <BorderGlow>
-              <div style={{ padding: "0.5em" }}>
-                <h1 className="font-display text-foreground px-4 font-semibold">
-                  Trabajando como Profesor de Bootcamp FullStack
-                </h1>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/manuelromerodev/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div style={{ padding: "0.5em" }}>
+                  <h1 className="font-display text-foreground px-4 font-semibold">
+                    Trabajando como Profesor de Bootcamp FullStack
+                  </h1>
+                </div>
+              </a>
             </BorderGlow>
           </motion.div>
 
