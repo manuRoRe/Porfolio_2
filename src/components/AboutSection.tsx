@@ -90,7 +90,7 @@ const AboutSection = () => {
               <p>
                 Cuento con una formación técnica integral gracias a mis dos
                 Grados Superiores:
-                <strong className="text-black/80 dark:text-white/80">
+                <strong className="text-black dark:text-white">
                   {" "}
                   Desarrollo de Aplicaciones Multiplataforma (DAM) y Desarrollo
                   de Aplicaciones Web (DAW)
@@ -98,27 +98,27 @@ const AboutSection = () => {
                 .
               </p>
 
-              <p className="font-bold text-black/80 dark:text-white/80">
+              <p className="font-bold text-black dark:text-white">
                 Lo que aporto a tu equipo:
               </p>
 
               <ul className="ml-5 list-disc space-y-3">
                 <li>
-                  <strong className="text-black/80 dark:text-white/80">
+                  <strong className="text-black dark:text-white">
                     Versatilidad Técnica
                   </strong>
                   : Capacidad para moverme entre el desarrollo
                   nativo/multiplataforma y el entorno web.
                 </li>
                 <li>
-                  <strong className="text-black/80 dark:text-white/80">
+                  <strong className="text-black dark:text-white">
                     Inglés Competente
                   </strong>
                   : Certificación B1 por Cambridge, con puntuación equivalente a
                   nivel <span className="text-primary font-bold">B2</span>.
                 </li>
                 <li>
-                  <strong className="text-black/80 dark:text-white/80">
+                  <strong className="text-black dark:text-white">
                     Mentalidad de Aprendizaje
                   </strong>
                   : Firme creyente en la formación continua. Especializado en el

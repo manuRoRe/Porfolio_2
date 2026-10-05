@@ -265,9 +265,12 @@ const CardNav: React.FC<CardNavProps> = ({
 
             <div className="ml-3 flex items-center gap-1.5">
               <Code2 className="text-primary h-6 w-6" />
-              <span className="gradient-text dark:gradient-text-dark text-[17px] font-bold">
+              <a
+                className="gradient-text dark:gradient-text-dark text-[17px] font-bold"
+                href="#"
+              >
                 Manuel Romero
-              </span>
+              </a>
             </div>
           </div>
 
