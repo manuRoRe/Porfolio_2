@@ -3,30 +3,31 @@ import { useRef } from "react";
 import { Database, Palette, Server, Zap } from "lucide-react";
 import MotionSkills from "./MotionSkills";
 import type { Skill } from "@/interfaces/Skill";
+import FolderFloat from "./ui/FolderFloat";
 
 const frontend: Skill[] = [
-  { name: "React", icon: "/icons/reactIcon.svg" },
-  { name: "Angular", icon: "/icons/angular.svg" },
-  { name: "Laravel", icon: "/icons/laravel.svg" },
-  { name: "Tailwindcss", icon: "/icons/tailwindcss.svg" },
-  { name: "TypeScript", icon: "/icons/typescript.svg" },
+  { name: "React", icon: "dist/icons/reactIcon.svg" },
+  { name: "Angular", icon: "dist/icons/angular.svg" },
+  { name: "Laravel", icon: "dist/icons/laravel.svg" },
+  { name: "Tailwindcss", icon: "dist/icons/tailwindcss.svg" },
+  { name: "TypeScript", icon: "dist/icons/typescript.svg" },
 ];
 
 const backend: Skill[] = [
-  { name: "Node.js", icon: "/icons/nodejs.svg" },
-  { name: "Java", icon: "/icons/java.svg" },
-  { name: "Laravel", icon: "/icons/laravel.svg" },
-  { name: "Php", icon: "/icons/php.svg" },
-  { name: "SpringBoot", icon: "/icons/spring.svg" },
-  { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
-  { name: "MongoDB", icon: "/icons/mongodb.svg" },
+  { name: "Node.js", icon: "dist/icons/nodejs.svg" },
+  { name: "Java", icon: "dist/icons/java.svg" },
+  { name: "Laravel", icon: "dist/icons/laravel.svg" },
+  { name: "Php", icon: "dist/icons/php.svg" },
+  { name: "SpringBoot", icon: "dist/icons/spring.svg" },
+  { name: "PostgreSQL", icon: "dist/icons/postgresql.svg" },
+  { name: "MongoDB", icon: "dist/icons/mongodb2.svg" },
 ];
 
 const tools: Skill[] = [
-  { name: "GitHub", icon: "/icons/github.svg" },
-  { name: "Docker", icon: "/icons/docker.svg" },
-  { name: "Figma", icon: "/icons/figma.svg" },
-  { name: "Slack", icon: "/icons/slack.svg" },
+  { name: "Git", icon: "dist/icons/git.svg" },
+  { name: "Docker", icon: "dist/icons/docker.svg" },
+  { name: "Figma", icon: "dist/icons/figma.svg" },
+  { name: "Slack", icon: "dist/icons/slack.svg" },
 ];
 
 const highlights = [
@@ -63,7 +64,7 @@ const AboutSection = () => {
 
         <div
           ref={contentRef}
-          className="section-container grid items-center-safe gap-12 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-3"
+          className="section-container grid items-center-safe justify-items-center gap-12 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-3"
         >
           {/* About Text */}
 
@@ -148,13 +149,92 @@ const AboutSection = () => {
           </div>
 
           {/* Skills */}
-          <MotionSkills
+
+          <FolderFloat
+            items={frontend}
+            label="Frontend"
+            labelIcon={Palette}
+            trigger="hover"
+            closeOnSelect
+            drift={0.5}
+            onSelect={(value, index) => console.log(value, index)}
+            folderColor="#3f3f46"
+            frontColor="#52525b"
+            paperColor="#3ee0cf"
+            itemColor="#ddfdff"
+            itemTextColor="#18181b"
+            labelColor="#f5f5f5"
+            width={200}
+            height={148}
+            radius={14}
+            spread={180}
+            lift={26}
+            tilt={8}
+            flapAngle={34}
+            restAngle={16}
+            openDuration={520}
+            stagger={45}
+            bounce={0.6}
+          />
+          <FolderFloat
+            items={backend}
+            label="Frontend"
+            labelIcon={Palette}
+            trigger="hover"
+            closeOnSelect
+            drift={0.5}
+            onSelect={(value, index) => console.log(value, index)}
+            folderColor="#3f3f46"
+            frontColor="#52525b"
+            paperColor="#3ee0cf"
+            itemColor="#ddfdff"
+            itemTextColor="#18181b"
+            labelColor="#f5f5f5"
+            width={200}
+            height={148}
+            radius={14}
+            spread={180}
+            lift={26}
+            tilt={8}
+            flapAngle={34}
+            restAngle={16}
+            openDuration={520}
+            stagger={45}
+            bounce={0.6}
+          />
+          <FolderFloat
+            items={tools}
+            label="Frontend"
+            labelIcon={Palette}
+            trigger="hover"
+            closeOnSelect
+            drift={0.5}
+            onSelect={(value, index) => console.log(value, index)}
+            folderColor="#3f3f46"
+            frontColor="#52525b"
+            paperColor="#3ee0cf"
+            itemColor="#ddfdff"
+            itemTextColor="#18181b"
+            labelColor="#f5f5f5"
+            width={200}
+            height={148}
+            radius={14}
+            spread={180}
+            lift={26}
+            tilt={8}
+            flapAngle={34}
+            restAngle={16}
+            openDuration={520}
+            stagger={45}
+            bounce={0.6}
+          />
+          {/* <MotionSkills
             isContentInView={isContentInView}
             title="Frontend"
             icon={Palette}
             skills={frontend}
-          ></MotionSkills>
-          <MotionSkills
+          ></MotionSkills> */}
+          {/* <MotionSkills
             isContentInView={isContentInView}
             title="Backend"
             icon={Server}
@@ -165,7 +245,7 @@ const AboutSection = () => {
             title="Herramientas"
             icon={Database}
             skills={tools}
-          ></MotionSkills>
+          ></MotionSkills> */}
         </div>
       </div>
     </section>

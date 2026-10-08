@@ -1,6 +1,8 @@
 import type { Skill } from "@/interfaces/Skill";
 import { motion } from "framer-motion";
 
+/* !!! Future Deprecated  */
+
 type MotionSkillsProps = {
   title: string;
   isContentInView: boolean;
