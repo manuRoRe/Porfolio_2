@@ -178,8 +178,8 @@ const AboutSection = () => {
           />
           <FolderFloat
             items={backend}
-            label="Frontend"
-            labelIcon={Palette}
+            label="Backend"
+            labelIcon={Server}
             trigger="hover"
             closeOnSelect
             drift={0.5}
@@ -204,8 +204,8 @@ const AboutSection = () => {
           />
           <FolderFloat
             items={tools}
-            label="Frontend"
-            labelIcon={Palette}
+            label="Herramientas"
+            labelIcon={Database}
             trigger="hover"
             closeOnSelect
             drift={0.5}
