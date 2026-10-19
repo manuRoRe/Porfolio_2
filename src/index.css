@@ -51,13 +51,15 @@
     --background: hsl(185, 44%, 85%);
     --foreground: hsl(191, 70%, 16%);
 
-    --card: hsl(185, 44%, 85%);
+    --card: hsl(60, 80%, 48%);
+    /* --card: hsl(185, 44%, 85%); */
     --card-foreground: hsl(191, 70%, 16%);
 
     --popover: hsl(185, 44%, 85%);
     --popover-foreground: hsl(191, 70%, 16%);
 
     --primary: hsl(193, 60%, 41%);
+
     --primary-foreground: hsl(191, 70%, 16%);
 
     --secondary: hsl(186, 57%, 45%);
