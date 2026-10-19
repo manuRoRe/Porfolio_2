@@ -12,35 +12,35 @@
   --font-sans: "Inter", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
 
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
 
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
 
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
 
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
 
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  --color-brand-secondary: hsl(var(--brand-secondary));
+  --color-brand-secondary: var(--brand-secondary);
 }
 
 @layer base {
@@ -48,88 +48,87 @@
     color-scheme: light;
 
     /* LIGHT MODE */
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: hsl(210, 40%, 98%);
+    --foreground: hsl(222, 47%, 11%);
 
-    --card: 175, 42%, 94%;
-    --card-foreground: 222 47% 11%;
+    --card: hsl(175, 42%, 94%);
+    --card-foreground: hsl(222, 47%, 11%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(222, 47%, 11%);
 
-    --primary: 174, 72%, 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: hsl(174, 72%, 45%);
+    --primary-foreground: hsl(0, 0%, 100%);
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: hsl(210, 40%, 96%);
+    --secondary-foreground: hsl(222, 47%, 11%);
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: hsl(210, 40%, 96%);
+    --muted-foreground: hsl(215, 16%, 47%);
 
-    --accent: 174 70% 92%;
-    --accent-foreground: 174 72% 22%;
+    --accent: hsl(174, 70%, 92%);
+    --accent-foreground: hsl(174, 72%, 22%);
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 100%);
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 174 72% 30%;
+    --border: hsl(214, 32%, 91%);
+    --input: hsl(214, 32%, 91%);
+    --ring: hsl(174, 72%, 30%);
 
-    --brand-secondary: 199 89% 36%;
+    --brand-secondary: hsl(199, 89%, 36%);
 
     --radius: 0.75rem;
 
-    --glow-primary: 174 72% 30%;
-    --glow-secondary: 199 89% 36%;
-    --gradient-start: 174 72% 30%;
-    --gradient-end: 199 89% 36%;
+    --glow-primary: hsl(174, 72%, 30%);
+    --glow-secondary: hsl(199, 89%, 36%);
+    --gradient-start: hsl(174, 72%, 30%);
+    --gradient-end: hsl(199, 89%, 36%);
 
-    --glass-bg: 0 0% 100% / 0.72;
-    --glass-border: 214 32% 85% / 0.55;
+    --glass-bg: hsl(0, 0%, 100%, 0.72);
+    --glass-border: hsl(214, 32%, 85%, 0.55);
   }
 
   .dark {
     color-scheme: dark;
 
-    /* DARK MODE: tus valores originales */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: hsl(221, 46%, 6%);
+    --foreground: hsl(210, 40%, 98%);
 
-    --card: 221, 51%, 10%;
-    --card-foreground: 210 40% 98%;
+    --card: hsl(221, 51%, 10%);
+    --card-foreground: hsl(210, 40%, 98%);
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: hsl(222, 47%, 8%);
+    --popover-foreground: hsl(210, 40%, 98%);
 
-    --primary: 174 72% 56%;
-    --primary-foreground: 222 47% 6%;
+    --primary: hsl(174, 72%, 56%);
+    --primary-foreground: hsl(222, 47%, 6%);
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: hsl(222, 47%, 12%);
+    --secondary-foreground: hsl(210, 40%, 98%);
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: hsl(222, 30%, 15%);
+    --muted-foreground: hsl(215, 20%, 65%);
 
-    --accent: 174 72% 56%;
-    --accent-foreground: 222 47% 6%;
+    --accent: hsl(174, 72%, 56%);
+    --accent-foreground: hsl(222, 47%, 6%);
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(210, 40%, 98%);
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 174 72% 56%;
+    --border: hsl(222, 30%, 18%);
+    --input: hsl(222, 30%, 18%);
+    --ring: hsl(174, 72%, 56%);
 
-    --brand-secondary: 199 89% 48%;
+    --brand-secondary: hsl(199, 89%, 48%);
 
-    --glow-primary: 174 72% 56%;
-    --glow-secondary: 199 89% 48%;
-    --gradient-start: 174 72% 56%;
-    --gradient-end: 199 89% 48%;
+    --glow-primary: hsl(174, 72%, 56%);
+    --glow-secondary: hsl(199, 89%, 48%);
+    --gradient-start: hsl(174, 72%, 56%);
+    --gradient-end: hsl(199, 89%, 48%);
 
-    --glass-bg: 222 47% 10% / 0.8;
-    --glass-border: 222 30% 25% / 0.3;
+    --glass-bg: hsl(222, 47%, 10%, 0.8);
+    --glass-border: hsl(222, 30%, 25%, 0.3);
   }
 
   * {
@@ -159,8 +158,8 @@
 @layer components {
   .glass-card {
     @apply rounded-xl border backdrop-blur-xl;
-    background-color: hsl(var(--card));
-    border-color: hsl(var(--glass-border));
+    background-color: var(--card);
+    border-color: var(--glass-border);
   }
 
   .gradient-text {
@@ -169,8 +168,8 @@
 
   .glow-effect {
     box-shadow:
-      0 0 40px hsl(var(--glow-primary) / 0.3),
-      0 0 80px hsl(var(--glow-primary) / 0.1);
+      0 0 40px var(--glow-primary),
+      0 0 80px var(--glow-primary);
   }
 
   .glow-border {
@@ -187,8 +186,8 @@
     opacity: 0;
     background: linear-gradient(
       135deg,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-end))
+      var(--gradient-start),
+      var(--gradient-end)
     );
     transition: opacity 300ms ease;
 
@@ -230,21 +229,21 @@
   }
 
   .project-card:hover {
-    box-shadow: 0 20px 60px hsl(var(--glow-primary) / 0.15);
+    box-shadow: 0 20px 60px var(--glow-primary);
   }
 
   .timeline-dot {
     @apply border-background bg-primary relative z-10 h-4 w-4 rounded-full border-4;
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5);
+    box-shadow: 0 0 20px var(--glow-primary);
   }
 
   .btn-primary {
     @apply from-primary to-brand-secondary text-primary-foreground inline-flex items-center justify-center rounded-xl bg-linear-to-r px-8 py-4 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90;
-    box-shadow: 0 10px 40px hsl(var(--glow-primary) / 0.4);
+    box-shadow: 0 10px 40px var(--glow-primary);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 15px 50px hsl(var(--glow-primary) / 0.5);
+    box-shadow: 0 15px 50px var(--glow-primary);
   }
 
   .btn-outline {
@@ -284,10 +283,10 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.4);
+    box-shadow: 0 0 20px var(--glow-primary);
   }
 
   50% {
-    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.7);
+    box-shadow: 0 0 40px var(--glow-primary);
   }
 }

@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Database, Palette, Server, Zap } from "lucide-react";
-import MotionSkills from "./MotionSkills";
 import type { Skill } from "@/interfaces/Skill";
 import FolderFloat from "./ui/FolderFloat";
 
@@ -187,9 +186,9 @@ const AboutSection = () => {
             folderColor="#3f3f46"
             frontColor="#52525b"
             paperColor="#3ee0cf"
-            itemColor="#ddfdff"
+            itemColor="#EFF4FA"
             itemTextColor="#18181b"
-            labelColor="#f5f5f5"
+            labelColor="#3ee0cf"
             width={200}
             height={148}
             radius={14}
@@ -213,7 +212,7 @@ const AboutSection = () => {
             folderColor="#3f3f46"
             frontColor="#52525b"
             paperColor="#3ee0cf"
-            itemColor="#ddfdff"
+            itemColor="#EFF4FA"
             itemTextColor="#18181b"
             labelColor="#f5f5f5"
             width={200}
